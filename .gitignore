@@ -1,2 +1,6 @@
 #Archivos basura de mac
 .DS_STORE
+#Carpeta idea
+.idea/
+#Archivos basura intellij
+Proyecto3_MYP.iml
