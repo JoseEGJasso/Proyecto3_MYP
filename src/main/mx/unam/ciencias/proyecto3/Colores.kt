@@ -1,4 +1,4 @@
-package src.main.mx.unam.ciencias.proyecto3
+package mx.unam.ciencias.proyecto3
 
 /**
  * Clase colores

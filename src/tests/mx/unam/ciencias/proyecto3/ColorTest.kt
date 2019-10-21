@@ -1,6 +1,6 @@
-package src.tests.mx.unam.ciencias.proyecto3
+package mx.unam.ciencias.proyecto3
 
-import src.main.mx.unam.ciencias.proyecto3.Colores
+import mx.unam.ciencias.proyecto3.Colores
 
 /**
  * Clase ColorTest
@@ -16,11 +16,11 @@ class ColorTest {
             prueba.colores(10)
             prueba.colores(-1)
         }
-        catch(IllegalArgumentException mayor) {
-            assertTrue(true)
+        catch(mayor : IllegalArgumentException  ) {
+            assert(true)
         }
-        catch(IllegalArgumentException menor){
-            assertTrue(true)
+        catch(menor : IllegalArgumentException ){
+            assert(true)
         }
     }
 
@@ -31,7 +31,7 @@ class ColorTest {
         val prueba = Colores()
         val colores = arrayOf("red","green","orange","yellow","blue","indigo","pink","coral","turquoise","lightblue")
         for (i in 0..9) {
-            assertTrue(prueba.colores(i) == colores.get(i))
+            assert(prueba.colores(i) == colores.get(i))
         }
     }
 
