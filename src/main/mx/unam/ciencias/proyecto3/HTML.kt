@@ -7,14 +7,15 @@ package mx.unam.ciencias.proyecto3
  */
 class HTML {
 
-    protected var HTML : String = "<!DOCTYPE html>" + "\n" +"<html>"+"\n"//Atributo el se irá modificando según el método para crear el contenido deseado en el documento
+    protected var HTML : String = "<!DOCTYPE html>" + "\n" +"<html>"+"\n" + "<head>" + "\n" + "<title>nombre</title>" +"\n" +" <link rel=\"stylesheet\" type=\"text/css\" href=\"estilo.css\">"+ "\n" + "</head>"
+
 
     /**
-     * Función agregaNombre que agregará el título en el metadata el documento
+     * Función agregaNombre que agregará el título en el metadata el documento sustituyendo la palabra nombre en el String HTML
      * @param nombre es un string con el nombre que se desea poner el HTML
      */
     protected fun agregaNombre(nombre : String){
-        HTML += "<head>" + "\n" + "<title>" + nombre + "</title>" +"\n" + "</head>" + "\n"
+        HTML = HTML.replace("nombre",nombre)
     }
 
     /**
