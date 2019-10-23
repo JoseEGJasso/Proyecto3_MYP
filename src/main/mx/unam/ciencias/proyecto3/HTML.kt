@@ -5,7 +5,7 @@ package mx.unam.ciencias.proyecto3
  * Esta clase será de la cual hereden todas las clases que deban crear un documento HTML y contendrá los métodos
  * para agregar los elementos básicos de cualquier documento HTML
  */
-class HTML {
+open class HTML {
 
     protected var HTML : String = "<!DOCTYPE html>" + "\n" +"<html>"+"\n" + "<head>" + "\n" + "<title>nombre</title>" +"\n" +" <link rel=\"stylesheet\" type=\"text/css\" href=\"estilo.css\">"+ "\n" + "</head>"
 
