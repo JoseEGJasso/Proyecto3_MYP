@@ -2,7 +2,8 @@ package mx.unam.ciencias.proyecto3
 
 /**
  * Clase abstracta DibujoArbol
- * De esta clase heredarán las clases que dibujon arboles binarios y se encargarán de regresar en svg el respectivo una lista de elementos que reciban
+ * De esta clase heredarán las clases que dibujan árboles binarios y se encargarán de regresar en svg un árbol creado
+ * a partir de una lista de elementos que reciban
  */
 abstract class DibujoArbol : Dibujo() {
     /**
@@ -15,7 +16,7 @@ abstract class DibujoArbol : Dibujo() {
      * @param raiz la raiz del arbol a graficar
      * @param posicion la posción en x que tendrá la raiz
      * @param largo el largo que tendra el documento svg
-     * @return todos los vertices en svg
+     * @return todos los vértices en svg
      */
     protected fun raiz(raiz : VerticeArbolBinario<Adaptador>, posicion : Int, largo : Int):String{
         var circulo = "<circle cx=\"posx\" cy=\"22\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"white\"></circle>"
@@ -30,14 +31,14 @@ abstract class DibujoArbol : Dibujo() {
     }
 
     /**
-     *Función circulos que recibe un vertice de arbol y graficará recursivamente todo el arbol, tambien recibe otros datos para graficar correctamente el vertice
-     * @param altura la altura que tiene el vertice actualmente
+     *Función circulos que recibe un vértice de arbol y graficará recursivamente todo el árbol, tambien recibe otros datos para graficar correctamente el vértice
+     * @param altura la altura que tiene el vértice actualmente
      * @param largo el largo del documento del svg
-     * @param ver el vertice que se esta graficando
-     * @param xPadre las coordenadas en x del vertice padre
-     * @param yPadre las coordenadas en y del vertice padre
-     * @param derecho booleano que indica si el vertice que se esta graficando actualmente es derecho o izquierdo
-     * @return los vertices con todos sus elementos en svg
+     * @param ver el vértice que se esta graficando
+     * @param xPadre las coordenadas en x del vértice padre
+     * @param yPadre las coordenadas en y del vértice padre
+     * @param derecho booleano que indica si el vértice que se esta graficando actualmente es derecho o izquierdo
+     * @return los vértices con todos sus elementos en svg
      */
     protected fun circulos(altura : Int, largo : Int, ver : VerticeArbolBinario<Adaptador>,xPadre : Int, yPadre : Int , derecho : Boolean):String{
         if(ver.get().equals(null)){
