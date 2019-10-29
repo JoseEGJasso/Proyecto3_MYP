@@ -5,7 +5,7 @@ package mx.unam.ciencias.proyecto3
  * a su recurrencia en el archivo
  * @param palabrasEnArchivo Diccionario de todas las palabras encontradas en los archivos
  */
-class Ordenador(palabrasEnArchivo: MutableMap<String, Int>) {
+class Ordenador{
 
     /* Lista de palabras convertidas en objeto Adaptador*/
     private var palabrasAdaptadas = mutableListOf<Adaptador>()
@@ -14,7 +14,7 @@ class Ordenador(palabrasEnArchivo: MutableMap<String, Int>) {
      * Constructor que recorre las llaves de palabrasEnArchivos y crea objetos Adaptador que va
      * añadiendo a una lista
      */
-    init{
+    constructor(palabrasEnArchivo: MutableMap<String, Int>){
         val llaves = palabrasEnArchivo.iterator()
         while (llaves.hasNext()) {
             val palabra = llaves.next()

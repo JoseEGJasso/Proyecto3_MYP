@@ -11,19 +11,24 @@ import java.io.File
  * @param palabrasOrdenadas lista de las palabras ordenadas de los archivos de entrada
  * @param total cantidad total de palabras en los archivos
  */
-class GeneradorGraficas(palabrasOrdenadas: MutableList<Adaptador>,private var total: Int){
+class GeneradorGraficas{
 
     /* Lista de las 10 palabras mas repetidas */
     private var palabrasFrecuentes = mutableListOf<Adaptador>()
 
     /* Objeto dibujo para crear las graficas correspondientes */
-    private var dibujo = null
+    private lateinit var dibujo: Dibujo
+
+    /* Total de palabras */
+    private var total = 0
 
     /**
      * Constructor que añade a una lista las 10 palabras mas frecuentes así como el resto de
      * palabras en los archivos
      */
-    init {
+    constructor(palabrasOrdenadas: MutableList<Adaptador>,total: Int){
+        this.total = total
+
         var j = 0
         for (pal in palabrasOrdenadas) {
             if (j++ == 9)
@@ -36,7 +41,10 @@ class GeneradorGraficas(palabrasOrdenadas: MutableList<Adaptador>,private var to
     }
 
     /**
-     *
+     * Método que crea los archivos con las gráficas de barras y pastel
+     * @param nombre Nombre de los archivos generados
+     * @param directorio Ruta donde se guardarán los archivos
+     * @param error Objeto que lanza cualquier error que surga en la ejecucion
      */
     fun genera(nombre:String,directorio: String,error: Errores){
         generaBarras(nombre,directorio,total,error)
@@ -84,8 +92,5 @@ class GeneradorGraficas(palabrasOrdenadas: MutableList<Adaptador>,private var to
         } catch (io: IOException) {
             error.errores(5)
         }
-
     }
-
-
 }
