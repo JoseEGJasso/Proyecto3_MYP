@@ -12,7 +12,7 @@ class Errores {
      */
     fun errores(error: Int) {
         when(error){
-            1 -> println("El uso del programa es el siguiente: \"java -jar target/proyecto3.jar -o directorio " +
+            1 -> println("El uso del programa es el siguiente: \"java -jar src/proyecto3.jar -o directorio " +
                     "archivo1, archivo2, archivo 3\" no has usado la bandera \"-o\" antes del nombre de la carpeta en " +
                     "donde se guardarán los archivos")
 

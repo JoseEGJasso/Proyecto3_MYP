@@ -1,8 +1,5 @@
 package mx.unam.ciencias.proyecto3
 
-import java.io.IOException
-import java.io.FileWriter
-import java.io.BufferedWriter
 import java.io.File
 
 /**
@@ -66,10 +63,11 @@ class GeneradorArboles{
         val contenido = dibujo.dibuja(lista)
         try {
             rojinegro.createNewFile()
-            val bw = BufferedWriter(FileWriter(rojinegro))
-            bw.write(contenido)
-            bw.close()
-        } catch (io: IOException) {
+
+            rojinegro.bufferedWriter().use { escritor ->
+                escritor.write(contenido)
+            }
+        } catch (io: Exception) {
             error.errores(5)
         }
     }
@@ -86,10 +84,12 @@ class GeneradorArboles{
         val contenido = dibujo.dibuja(lista)
         try {
             avl.createNewFile()
-            val bw = BufferedWriter(FileWriter(avl))
-            bw.write(contenido)
-            bw.close()
-        } catch (io: IOException) {
+
+            avl.bufferedWriter().use { escritor ->
+                escritor.write(contenido)
+            }
+
+        } catch (io: Exception) {
             error.errores(5)
         }
     }
