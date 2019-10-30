@@ -4,7 +4,7 @@ package mx.unam.ciencias.proyecto3
  * Clase que se encarga de conectar la información obtenida de los archivos y las gráficas
  * que se muestran el el HTML generado
  */
-<<<<<<< HEAD
+
 class Datos: HTML() {
     /**
      * Método general para crear el archivo html con todas las graficas e informacion correspondiente
@@ -61,7 +61,8 @@ class Datos: HTML() {
     }
 
     /**
-     *
+     * Regresa el nombre de los archivos sin extension
+     * @param nombre nombre del archivo
      */
     private fun limpia (nombre: String): String{
         var limpio = ""
@@ -73,8 +74,3 @@ class Datos: HTML() {
         return limpio
     }
 }
-=======
-class Datos{
-
-}
->>>>>>> 3d5576dc75f4c4d5125a0b2aaeee03b890324b5a
