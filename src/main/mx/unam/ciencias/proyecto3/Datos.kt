@@ -12,6 +12,7 @@ class Datos: HTML() {
      * @param nombre nombre de los archivos generados
      * @param directorio ruta donde se van a crear los archivos
      * @param error objeto que lanza errores si los hay
+     * @return archivo html con la estructura necesaria para generar las graficas y la informacion obtenida
      */
     fun html(palabras: MutableMap<String, Int>, nombre: String, directorio: String, error: Errores): String {
         if (palabras.isEmpty())
@@ -52,6 +53,7 @@ class Datos: HTML() {
     /**
      * Obtiene el total de palabras en los archivos
      * @param palabras diccionario con las palabras y su frecuencia
+     * @return total de palabras
      */
     private fun sacaTotal (palabras: MutableMap<String, Int>): Int{
         var total = 0
@@ -63,6 +65,7 @@ class Datos: HTML() {
     /**
      * Regresa el nombre de los archivos sin extension
      * @param nombre nombre del archivo
+     * @return ruta sin extension
      */
     private fun limpia (nombre: String): String{
         var limpio = ""
