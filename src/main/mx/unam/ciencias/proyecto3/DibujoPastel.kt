@@ -45,7 +45,7 @@ class DibujoPastel(total : Int) : Dibujo() {
         var gajos = ""
         var cuadros = ""
         var textos = ""
-        var ultimo = Adaptador()
+        var ultimo = Adaptador("",0)
         for(adaptador in lista){
             if(i.equals(lista.size-1)){
                 ultimo = adaptador
@@ -75,7 +75,7 @@ class DibujoPastel(total : Int) : Dibujo() {
         circulo = circulo.replace("posx",cx.toString())
         circulo = circulo.replace("posy",cy.toString())
         circulo = circulo.replace("rad",radio.toString())
-        circulo = circulo.replace("white",color))
+        circulo = circulo.replace("white",color)
         val cuadrado = agregaCuadrado(i,color)
         val texto = agregaTexto(i,contenido)
         svg += circulo + "\n" + cuadrado + "\n" + texto + "\n"
