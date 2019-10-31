@@ -28,7 +28,7 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
     /**
      *Variable datos que creará todo el contenido dentro del html de cada archivo
      */
-    private var datos : Datos = null
+    private var datos  = Datos()
 
     init{
         this.archivos = archivos
