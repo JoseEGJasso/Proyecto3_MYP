@@ -18,7 +18,7 @@ class Indice(nombres : MutableMap<Int,String>) : HTML() {
      *@param archivos archivos las palabras dentro de cada archivo
      *@return el contenido dentro del índice
      */
-    fun html(archivos: MutableList<MutableMap<String,Int>>): String {
+    public fun html(archivos: MutableList<MutableMap<String,Int>>): String {
         agregaNombre("Índice")
         agregaTitulo("Índice de documentos")
         abreCuerpo()
@@ -40,7 +40,7 @@ class Indice(nombres : MutableMap<Int,String>) : HTML() {
      *@param archivo al que se hace referencia
      *@param número total de palabras dentro de cada archivo
      */
-    fun agregaLiga(liga: String, nombre: String, total:String) {
+    private fun agregaLiga(liga: String, nombre: String, total:String) {
         agregaParrafo("<a href=\"" + liga +"\">" + nombre + "</a>"+total)
     }
     /**
@@ -48,7 +48,7 @@ class Indice(nombres : MutableMap<Int,String>) : HTML() {
      *@param palabras las palabras dentro de cada archivo
      *@return total el total de palabras dentro del archivo
      */
-    fun sacaTotal(palabras: MutableMap<String,Int>): String {
+    private fun sacaTotal(palabras: MutableMap<String,Int>): String {
         var total = 0
         for(palabra in palabras.values){
             total += palabra
@@ -60,7 +60,7 @@ class Indice(nombres : MutableMap<Int,String>) : HTML() {
      *@param nombre el nombre a limpiar
      *@return limpio el nombre del archivo sin  extensión
      */
-    fun limpia(nombre: String): String {
+    private fun limpia(nombre: String): String {
         var limpio = ""
         var rango = nombre.length-1
         for(i in 0..rango){
