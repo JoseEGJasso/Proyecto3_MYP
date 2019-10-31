@@ -36,7 +36,7 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
         this.directorio = directorio
     }
     /**
-     *Método genera que se encargará de generar todos los archivos
+     *Función genera que se encargará de generar todos los archivos
      *@param error para notificar de cualquier error que pueda surgir en el programa
      */
     fun genera (error : Errores){
@@ -48,12 +48,12 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
         creaIndice(error)
     }
     /**
-     *Método genera archivo que genera el html de cada archivo
+     *Función genera archivo que genera el html de cada archivo
      *@param palabras las palabras del archivo
      *@param documento el nombre del archivo que se recibio
      *@param error para notificar de cualquier error que pueda surgir en el programa
      */
-    fun creaArchivo(palabras : MutableMap<String,Int> , documento : String, error : Errores){
+    private fun creaArchivo(palabras : MutableMap<String,Int> , documento : String, error : Errores){
         datos = Datos()
         var nombre  = File(directorio + "/" + limpia(documento) + ".html")
         var contenido = datos.html(palabras,documento,directorio,error)
@@ -68,10 +68,10 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
         }
     }
     /**
-     *Método que genéra el índice que tendrá una liga a cada documento html generado
+     *Función que genéra el índice que tendrá una liga a cada documento html generado
      *@param error para notificar de cualquier error que pueda surgir en el programa
      */
-    fun creaIndice(error: Errores) {
+    private fun creaIndice(error: Errores) {
         val ind = Indice(nombres)
         val indice = File(directorio+"/"+"index.html")
         val contenido = ind.html(archivos)
@@ -86,11 +86,11 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
         }
     }
     /**
-     *Método limpia que regresará los nombres del archivo sin extensión
+     *Función limpia que regresará los nombres del archivo sin extensión
      *@param nombre el nombre a limpiar
      *@return limpio el nombre del archivo sin  extensión
      */
-    fun limpia(nombre: String): String {
+    private fun limpia(nombre: String): String {
         var limpio = ""
         for(i in 0..nombre.length){
             if(nombre[i] == '.'){
