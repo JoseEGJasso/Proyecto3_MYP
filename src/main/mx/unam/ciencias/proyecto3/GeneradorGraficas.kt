@@ -80,7 +80,7 @@ class GeneradorGraficas{
      * @param error objeto que recibe que tipo de error e imprime un mensaje de acuerdo al error
      */
     private fun generaPastel(nombre: String, directorio: String, total: Int, error: Errores) {
-        dibujo = DibujoPastel(total.toDouble())
+        dibujo = DibujoPastel(total)
         val pastel = File(directorio + "/" + nombre + "Pastel.svg")
         val contenido = dibujo.dibuja(palabrasFrecuentes)
         try {
