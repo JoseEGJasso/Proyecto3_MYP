@@ -22,7 +22,7 @@ class DibujoArbolAVL : DibujoArbol() {
         if(altura<= 40) {
             return ""
         }
-        val largo = (arbol.getElementos()+1)/2)*100+40
+        val largo = ((arbol.getElementos()+1)/2)*100+40
         svg = svg.replace("alto",altura.toString())
         svg = svg.replace("largo",largo.toString())
         val circulos = raiz(arbol.raiz(),largo/2,largo)
