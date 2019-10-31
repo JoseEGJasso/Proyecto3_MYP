@@ -21,7 +21,7 @@ class Documentos{
      *@param error para notificar de cualquier error que pueda surgir en el programa
      *@param directorio la ubicación en donde se deben construir los archivos
      */
-    public fun archivo(nombres: MutableList<String>,error: Errores, directorio: String){
+    fun archivo(nombres: MutableList<String>,error: Errores, directorio: String){
         for (i in 0 until nombres.size) {
 
             var nombre = nombres[i]
@@ -32,8 +32,8 @@ class Documentos{
             this.nombres[i] = nombre
         }
 
-        //val generador = GeneradorArchivos(palabrasEnArchivos, this.nombres, directorio)
-        //generador.genera(error)
+        val generador = GeneradorArchivos(palabrasEnArchivos, this.nombres, directorio)
+        generador.genera(error)
     }
 
     /**

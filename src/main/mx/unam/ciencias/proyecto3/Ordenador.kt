@@ -16,9 +16,10 @@ class Ordenador{
      */
     constructor(palabrasEnArchivo: MutableMap<String, Int>){
         val llaves = palabrasEnArchivo.iterator()
+
         while (llaves.hasNext()) {
             val palabra = llaves.next()
-            palabrasAdaptadas.add(Adaptador(palabra.key, palabrasEnArchivo[palabra.key]))
+            palabrasAdaptadas.add(Adaptador(palabra.key, palabrasEnArchivo[palabra.key]!!))
         }
     }
 

@@ -1,8 +1,5 @@
 package mx.unam.ciencias.proyecto3
 
-import java.io.IOException
-import java.io.FileWriter
-import java.io.BufferedWriter
 import java.io.File
 
 /**
@@ -33,7 +30,7 @@ class GeneradorGraficas{
         for (pal in palabrasOrdenadas) {
             if (j++ == 9)
                 break
-            total -= pal.getApariciones()
+            this.total -= pal.getApariciones()
             palabrasFrecuentes.add(pal)
         }
         if (palabrasOrdenadas.size >= 10)
@@ -61,13 +58,15 @@ class GeneradorGraficas{
     private fun generaBarras(nombre: String, directorio: String, total: Int, error: Errores) {
         dibujo = DibujoBarras(total)
         val barras = File(directorio + "/" + nombre + "Barras.svg")
-        val contenido = dibujo.dibuja(lista)
+        val contenido = dibujo.dibuja(palabrasFrecuentes)
         try {
             barras.createNewFile()
-            val bw = BufferedWriter(FileWriter(barras))
-            bw.write(contenido)
-            bw.close()
-        } catch (io: IOException) {
+
+            barras.bufferedWriter().use { escritor ->
+                escritor.write(contenido)
+            }
+
+        } catch (io: Exception) {
             error.errores(5)
         }
 
@@ -83,13 +82,15 @@ class GeneradorGraficas{
     private fun generaPastel(nombre: String, directorio: String, total: Int, error: Errores) {
         dibujo = DibujoPastel(total.toDouble())
         val pastel = File(directorio + "/" + nombre + "Pastel.svg")
-        val contenido = dibujo.dibuja(lista)
+        val contenido = dibujo.dibuja(palabrasFrecuentes)
         try {
             pastel.createNewFile()
-            val bw = BufferedWriter(FileWriter(pastel))
-            bw.write(contenido)
-            bw.close()
-        } catch (io: IOException) {
+
+            pastel.bufferedWriter().use { escritor ->
+                escritor.write(contenido)
+            }
+
+        } catch (io: Exception) {
             error.errores(5)
         }
     }
