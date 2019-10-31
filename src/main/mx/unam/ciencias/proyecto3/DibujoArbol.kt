@@ -5,7 +5,7 @@ package mx.unam.ciencias.proyecto3
  * De esta clase heredarán las clases que dibujan árboles binarios y se encargarán de regresar en svg un árbol creado
  * a partir de una lista de elementos que reciban
  */
-abstract class DibujoArbol : Dibujo() {
+abstract  class DibujoArbol : Dibujo() {
     /**
      *Función abstracta que implementarán las clases que hereden de DibujoArbol
      */
@@ -18,7 +18,7 @@ abstract class DibujoArbol : Dibujo() {
      * @param largo el largo que tendra el documento svg
      * @return todos los vértices en svg
      */
-    protected fun raiz(raiz : VerticeArbolBinario<Adaptador>, posicion : Int, largo : Int):String{
+    protected open fun raiz(raiz : VerticeArbolBinario<Adaptador>, posicion : Int, largo : Int):String{
         var circulo = "<circle cx=\"posx\" cy=\"22\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"white\"></circle>"
         circulo = circulo.replace("posx",posicion.toString())
         circulo += "\n" + texto(raiz.get().toString(),posicion,22)
@@ -40,7 +40,7 @@ abstract class DibujoArbol : Dibujo() {
      * @param derecho booleano que indica si el vértice que se esta graficando actualmente es derecho o izquierdo
      * @return los vértices con todos sus elementos en svg
      */
-    protected fun circulos(altura : Int, largo : Int, ver : VerticeArbolBinario<Adaptador>,xPadre : Int, yPadre : Int , derecho : Boolean):String{
+    protected open fun circulos(altura : Int, largo : Int, ver : VerticeArbolBinario<Adaptador>,xPadre : Int, yPadre : Int , derecho : Boolean):String{
         if(ver.get().equals(null)){
             return ""
         }
@@ -48,9 +48,9 @@ abstract class DibujoArbol : Dibujo() {
         val y = 22 + (100*altura)
         var x = 0
         if(derecho){
-            x = xPadre + (largo/Math.pow(2,ver.profundidad()+1)).toInt()
+            x = xPadre + (largo/Math.pow(2,((ver.profundidad()+1).toDouble())).toInt()
         }else{
-            x = xPadre - (largo/Math.pow(2,ver.profundidad()+1)).toInt()
+            x = xPadre - (largo/Math.pow(2, (ver.profundidad()+1).toDouble())).toInt()
         }
         circulo = circulo.replace("posx",x.toString())
         circulo = circulo.replace("posy",y.toString())
