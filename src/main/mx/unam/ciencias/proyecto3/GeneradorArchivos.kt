@@ -39,7 +39,7 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
      *Función genera que se encargará de generar todos los archivos
      *@param error para notificar de cualquier error que pueda surgir en el programa
      */
-    fun genera (error : Errores){
+    public fun genera (error : Errores){
         var i = 0
         archivos.forEach{
             var nombre = nombres.get(i++)
