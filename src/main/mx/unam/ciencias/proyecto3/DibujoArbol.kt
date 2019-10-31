@@ -48,9 +48,9 @@ abstract  class DibujoArbol : Dibujo() {
         val y = 22 + (100*altura)
         var x = 0
         if(derecho){
-            x = xPadre + (largo/Math.pow(2,((ver.profundidad()+1).toDouble())).toInt()
+            x = xPadre + (largo/Math.pow(2.0,((ver.profundidad()+1).toDouble())).toInt())
         }else{
-            x = xPadre - (largo/Math.pow(2, (ver.profundidad()+1).toDouble())).toInt()
+            x = xPadre - (largo/Math.pow(2.0,((ver.profundidad()+1).toDouble())).toInt())
         }
         circulo = circulo.replace("posx",x.toString())
         circulo = circulo.replace("posy",y.toString())
