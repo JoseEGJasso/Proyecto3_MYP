@@ -1,5 +1,7 @@
 package mx.unam.ciencias.proyecto3
 
+import java.sql.DriverManager
+
 /**
  * Clase AdaptadorTest
  * se encargará de probar que los métodos de la clase Adaptador cumplan la funcion deseada
@@ -14,21 +16,34 @@ class AdaptadorTest {
      * Función que probará que el getter del atributo palabra funcione correctamente
      */
     public fun pruebaGetPalabra(){
-        assert(test.getPalabra().equals("prueba"))
+        if(test.getPalabra().equals("prueba")){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
     }
 
     /**
      * Función que probará que el getter del atributo Letra funcione correctamente
      */
     public fun pruebaGetLetra(){
-        assert(test.getLetra().equals('A'))
+        if(test.getLetra().equals('A')){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
     }
 
     /**
      * Función que probará que el getter del atributo apariciones funcione correctamente
      */
     public fun pruebaGetApariciones(){
-        assert(test.getApariciones().equals(6))
+        if(test.getApariciones().equals(6)){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+
     }
 
     /**
@@ -47,7 +62,12 @@ class AdaptadorTest {
         test = Adaptador("prueba",6)
         pruebaGetPalabra()
         pruebaGetApariciones()
-        assert(test.getLetra().equals(' '))
+        if(test.getLetra().equals(' ')){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+
     }
 
     /**
@@ -66,9 +86,22 @@ class AdaptadorTest {
         var menor = Adaptador("prueba",4,'A')
         var mayor = Adaptador("prueba",8,'A')
         var igual = Adaptador("prueba",6,'A')
-        assert(test.compareTo(menor)>0)
-        assert(test.compareTo(mayor)<0)
-        assert(test.compareTo(igual).equals(0))
+        if(test.compareTo(menor)>0){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+        if(test.compareTo(mayor)<0){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+        if(test.compareTo(igual).equals(0)){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+
     }
 
     /**
@@ -76,6 +109,11 @@ class AdaptadorTest {
      */
     public fun pruebaToString(){
         test.setLetra('A')
-        assert(test.toString().equals("A"))
+        if(test.toString().equals("A")){
+            DriverManager.println("Prueba pasada")
+        }else{
+            DriverManager.println("Prueba no pasada")
+        }
+
     }
 }
