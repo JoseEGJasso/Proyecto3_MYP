@@ -48,5 +48,7 @@ open class HTML {
         HTML += "<p>" + contenido + "</p>" + "\n"
     }
 
-
+    protected fun agregaObjeto(objeto : String){
+        HTML += "<object " + objeto+"></object>"
+    }
 }
