@@ -26,11 +26,13 @@ class GeneradorGraficas{
     constructor(palabrasOrdenadas: MutableList<Adaptador>,total: Int){
         this.total = total
 
+        var total = total
+
         var j = 0
         for (pal in palabrasOrdenadas) {
             if (j++ == 9)
                 break
-            this.total -= pal.getApariciones()
+            total -= pal.getApariciones()
             palabrasFrecuentes.add(pal)
         }
         if (palabrasOrdenadas.size >= 10)

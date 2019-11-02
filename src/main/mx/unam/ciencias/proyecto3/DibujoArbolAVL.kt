@@ -72,7 +72,7 @@ class DibujoArbolAVL : DibujoArbol() {
         if(ver.get().equals(null)){
             return ""
         }
-        var circulo = "\n" + "<circle cx=\"posx\" cy=\"22\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"color\"></circle>"
+        var circulo = "\n" + "<circle cx=\"posx\" cy=\"posy\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"white\"></circle>"
         val y = 32 + (100*altura)
         var x = 0
         if(derecho){
@@ -86,7 +86,8 @@ class DibujoArbolAVL : DibujoArbol() {
         circulo += "\n" +linea(xPadre,yPadre,x,y)
         if(ver.hayIzquierdo()){
             circulo += circulos(altura+1,largo,ver.izquierdo(),x,y,false)
-        }else{
+        }
+        if(ver.hayDerecho()){
             circulo += circulos(altura+1,largo,ver.derecho(),x,y,true)
         }
         circulo+= "\n"+ balance(ver,x,y)
@@ -106,6 +107,7 @@ class DibujoArbolAVL : DibujoArbol() {
         balance = balance.replace("posiciony",(y-10).toString())
         balance= balance.replace("alt",ver.altura().toString())
         balance= balance.replace("bal",balance(ver).toString())
+
         return balance
     }
 

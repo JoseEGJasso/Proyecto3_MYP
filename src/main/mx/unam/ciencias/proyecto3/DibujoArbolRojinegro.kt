@@ -28,7 +28,7 @@ class DibujoArbolRojinegro : DibujoArbol() {
         svg = svg.replace("alto",altura.toString())
         svg = svg.replace("largo",largo.toString())
         var circulos = raiz(arbol.raiz(),largo/2,largo)
-        svg = circulos + "\n" + "</g>" + "\n" + "</svg>"
+        svg += circulos + "\n" + "</g>" + "\n" + "</svg>"
         return svg
     }
 
@@ -55,7 +55,8 @@ class DibujoArbolRojinegro : DibujoArbol() {
         circulo += "\n" + texto(raiz.get().toString(),posicion,22,true)
         if(raiz.hayIzquierdo()){
             circulo += circulos(1,largo,raiz.izquierdo(),posicion,22,false)
-        }else if(raiz.hayDerecho()) {
+        }
+        if(raiz.hayDerecho()) {
             circulo += circulos(1, largo, raiz.derecho(), posicion, 22, true)
         }
         return circulo
@@ -76,7 +77,7 @@ class DibujoArbolRojinegro : DibujoArbol() {
             return ""
         }
         var esNegro = false
-        var circulo = "\n" + "<circle cx=\"posx\" cy=\"22\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"color\"></circle>"
+        var circulo = "\n" + "<circle cx=\"posx\" cy=\"posy\" r=\"16\" stroke=\"black\" stroke-width=\"3\" fill=\"color\"></circle>"
         if (arbol.getColor(ver) == Color.ROJO){
             circulo = circulo.replace("color","red")
         }else{
@@ -96,7 +97,8 @@ class DibujoArbolRojinegro : DibujoArbol() {
         circulo += "\n" +linea(xPadre,yPadre,x,y)
         if(ver.hayIzquierdo()){
             circulo += circulos(altura+1,largo,ver.izquierdo(),x,y,false)
-        }else{
+        }
+        if(ver.hayDerecho()){
             circulo += circulos(altura+1,largo,ver.derecho(),x,y,true)
         }
         return circulo
