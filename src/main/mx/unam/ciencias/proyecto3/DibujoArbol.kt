@@ -78,8 +78,10 @@ abstract  class DibujoArbol : Dibujo() {
             texto = texto.replace("posicionx",(x-4).toString())
         }else{
             texto = texto.replace("posicionx",(x-6).toString())
-            texto = texto.replace("posiciony",(y+3).toString())
         }
+
+        texto = texto.replace("posiciony",(y+3).toString())
+
         return texto
     }
 
