@@ -1,7 +1,5 @@
 package mx.unam.ciencias.proyecto3
 
-import mx.unam.ciencias.proyecto3.*
-
 import java.io.File
 
 import java.io.IOException
@@ -46,6 +44,7 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
             creaArchivo(it, nombre.toString(),error)
         }
         creaIndice(error)
+        creaCSS(error)
     }
     /**
      *Función genera archivo que genera el html de cada archivo
@@ -100,5 +99,73 @@ class GeneradorArchivos(archivos : MutableList<MutableMap<String,Int>>, nombres 
         }
         return limpio
     }
+
+    /**
+     * Método que se encarga de generar el CSS de los HTML generados.
+     * Mitad del CSS es generado por el método cssBody() y la otra
+     * mitad por el método cssH1yh1()
+     */
+    private fun creaCSS(error: Errores){
+        var contenido = cssBody() + cssH1yh1()
+        val archivo = File(directorio+"/"+"estilo.css")
+
+        try {
+            archivo.bufferedWriter().use {
+                escritor -> escritor.write(contenido)
+            }
+        } catch (e: IOException){
+            error.errores(5)
+        }
+    }
+
+    /**
+     * Método que genera el CSS del cuerpo del HTML
+     * @return cadena con el código CSS del cuerpo
+     */
+    private fun cssBody(): String{
+        var body = "body{\n" +
+                "    background-color: darkslategrey;\n" +
+                "    background-image: url(https://images.wallpaperscraft.com/image/points_cubes_background_light_91691_1280x960.jpg);\n" +
+                "}"
+
+        body += "p{\n" +
+                "    font-weight: bold;\n" +
+                "    font-size: large;\n" +
+                "    color: silver;\n" +
+                "    font-family: \"Arial\", sans-serif;\n" +
+                "    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n" +
+                "}"
+
+        body += "a{\n" +
+                "    color: yellow;\n" +
+                "}"
+
+        return body
+    }
+
+    /**
+     * Método que genera el CSS de los títulos del HTML
+     * @return cadena del código CSS de los totulos
+     */
+    private fun cssH1yh1(): String{
+        var h1 = "\nh1{\n" +
+                "    background-color: lightsteelblue;\n" +
+                "    font-weight: bold;\n" +
+                "    text-shadow: 1px 1px 3px black;\n" +
+                "}"
+
+        h1 += "H1{\n" +
+                "    color: firebrick;\n" +
+                "    background-color: lightsteelblue;\n" +
+                "    text-align: center;\n" +
+                "    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\n" +
+                "    text-shadow: 12px;\n" +
+                "    font-style: italic;\n" +
+                "    font-weight: bold;\n" +
+                "}"
+
+        return h1
+    }
+
 }
 

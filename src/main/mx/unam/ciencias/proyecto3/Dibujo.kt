@@ -16,7 +16,7 @@ abstract class Dibujo {
      * @return la cadena con el elemento como texto en svg
      */
     protected fun agregaElemento(elemento: String): String {
-        var texto = "<text x=\"posicionx\" y = \"posiciony\" font-family =\"Times New Roman\" font-size = \"20\" >elemento</text>"
+        var texto = "<text x=\"posicionx\" y = \"posiciony\" fill = \"silver\" font-weight = \"bold\" font-family =\"Arial Narrow\" font-size = \"20\" >elemento</text>"
         texto = texto.replace("elemento",elemento)
         return texto
     }
