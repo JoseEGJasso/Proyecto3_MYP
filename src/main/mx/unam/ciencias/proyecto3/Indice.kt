@@ -25,7 +25,7 @@ class Indice(nombres : MutableMap<Int,String>) : HTML() {
         val rango = nombres.size-1
         for(i in 0..rango){
             var nombre = nombres.get(i)
-            var total = "número de palabras" + sacaTotal(archivos.get(i))
+            var total = ". Número de palabras: " + sacaTotal(archivos.get(i))
             if (nombre != null) {
                 agregaLiga(limpia(nombre)+".html",nombre,total)
             }

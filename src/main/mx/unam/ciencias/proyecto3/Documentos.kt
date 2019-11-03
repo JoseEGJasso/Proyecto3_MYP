@@ -2,6 +2,7 @@ package mx.unam.ciencias.proyecto3
 
 import java.text.Normalizer
 import java.io.File
+import java.io.IOException
 
 /**
  * Clase documentos que se encarga de leer los archivos recibidos
@@ -45,13 +46,17 @@ class Documentos{
 
         val palabrasArchivo = mutableMapOf<String,Int>()
         val leeArchivo = File(ruta)
-        val buffer = leeArchivo.bufferedReader()
 
-        var lector = buffer.readLine()
+        try{
+            val buffer = leeArchivo.bufferedReader()
+            var lector = buffer.readLine()
 
-        while (lector != null){
-            corta(lector,palabrasArchivo)
-            lector = buffer.readLine()
+            while (lector != null){
+                corta(lector,palabrasArchivo)
+                lector = buffer.readLine()
+            }
+        }catch (e: IOException){
+            error.errores(3)
         }
 
         palabrasEnArchivos.add(palabrasArchivo)

@@ -73,13 +73,16 @@ abstract  class DibujoArbol : Dibujo() {
      */
     protected fun texto(elemento : String, x : Int, y : Int):String{
         var texto = agregaElemento(elemento)
+
         texto = texto.replace("20","11")
         if(elemento.length<3){
             texto = texto.replace("posicionx",(x-4).toString())
         }else{
             texto = texto.replace("posicionx",(x-6).toString())
-            texto = texto.replace("posiciony",(y+3).toString())
         }
+
+        texto = texto.replace("posiciony",(y+3).toString())
+
         return texto
     }
 
