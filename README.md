@@ -1,1 +1,2 @@
 # Proyecto3_MYP
+Este proyecto tiene como objetivo recibir archivos de texto y generar un documento HTML por archivo que contengan las veces que aparecen todas las palabras en el archivo y 4 gráficas: una gráfica de pastel y otra de barras que contuvieran los porcentajes de las palabras según su número de apariciones ademas un árbol rojinegro y un árbol avl con las 15 palabras más repetidas en el documento; también genera un índice que tendrá ligas a todos los documentos HTML generados por el programa
